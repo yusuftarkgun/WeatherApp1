@@ -74,9 +74,9 @@ class ViewController: UIViewController, WeatherViewModelDelegate, UITableViewDat
     
     // MARK: - WeatherViewModelDelegate
     func didUpdateWeatherData() {
-        currentTemperatureLabel.text = viewModel.currentTemperature
 
         DispatchQueue.main.async {
+            self.currentTemperatureLabel.text = self.viewModel.currentTemperature
             let iconCode = self.viewModel.currentIconCode
 
             let iconURL = URL(string: "https://openweathermap.org/img/wn/\(iconCode).png")
