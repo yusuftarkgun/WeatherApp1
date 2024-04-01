@@ -33,6 +33,7 @@ struct WeatherData: Codable {
 
 struct CurrentWeather: Codable {
     let temp: Double
+    let weather: [Weather]
 
    // let icon: String
 }
