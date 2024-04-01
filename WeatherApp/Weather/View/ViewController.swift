@@ -1,13 +1,18 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, WeatherViewModelDelegate, UITableViewDataSource {
+class ViewController: UIViewController, WeatherViewModelDelegate, UITableViewDataSource{
     
     @IBOutlet weak var currentLocationView: UILabel!
     @IBOutlet weak var sevenDayTableView: UITableView!
+    @IBOutlet weak var currentIcon: UIImageView!
     @IBOutlet weak var currentTemperatureLabel: UILabel!
+
+    
+    
     
     // MARK: - Properties
+    let sevenDaysTableCell = UITableView()
     private let viewModel = WeatherViewModel()
     private let locationManager = LocationManager.shared
      var latitude  = 0.0
@@ -18,13 +23,21 @@ class ViewController: UIViewController, WeatherViewModelDelegate, UITableViewDat
         super.viewDidLoad()
         setupUI()
       //  updateUI(with: CLLocation(latitude: latitude, longitude: longitude))
+        let backgroundImage = UIImage(named: "pexels-pixabay-209831.jpg")
+        let imageView = UIImageView(image: backgroundImage)
+        imageView.contentMode = .scaleAspectFill
+        self.view.backgroundColor = UIColor(patternImage: backgroundImage!)
+     //   sevenDayTableView.backgroundView = imageView
+        sevenDayTableView.backgroundColor = UIColor.clear
+        
+
     }
     
     // MARK: - Setup UI
     private func setupUI() {
         viewModel.delegate = self
         sevenDayTableView.dataSource = self
-        sevenDayTableView.rowHeight = 80
+        sevenDayTableView.rowHeight = 50
         let nib = UINib(nibName: "SevenDaysTableCell", bundle: nil)
         sevenDayTableView.register(nib, forCellReuseIdentifier: SevenDaysTableCell.identifier)
         // Fetch weather data after setting up UI
@@ -61,9 +74,15 @@ class ViewController: UIViewController, WeatherViewModelDelegate, UITableViewDat
     
     // MARK: - WeatherViewModelDelegate
     func didUpdateWeatherData() {
+        currentTemperatureLabel.text = viewModel.currentTemperature
+
         DispatchQueue.main.async {
-            self.currentTemperatureLabel.text = self.viewModel.currentTemperature
+            let iconCode = self.viewModel.currentIconCode
+
+            let iconURL = URL(string: "https://openweathermap.org/img/wn/\(iconCode).png")
+            self.currentIcon.kf.setImage(with: iconURL)
             self.sevenDayTableView.reloadData()
+            
         }
     }
     
