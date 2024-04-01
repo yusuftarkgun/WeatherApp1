@@ -85,7 +85,6 @@
 				AD4069AE2BB9F9490077E2E1 /* SevenDaysTableCell */,
 				AD8E65272BB58264007B0E98 /* Main.storyboard */,
 				AD8E65252BB58264007B0E98 /* ViewController.swift */,
-				AD4069C42BBB38930077E2E1 /* MapViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -97,6 +96,30 @@
 				AD4069B02BB9F97D0077E2E1 /* SevenDaysTableCell.xib */,
 			);
 			path = SevenDaysTableCell;
+			sourceTree = "<group>";
+		};
+		AD4069CB2BBB55810077E2E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				AD4069CD2BBB55AA0077E2E1 /* ViewModel */,
+				AD4069CC2BBB558E0077E2E1 /* View */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		AD4069CC2BBB558E0077E2E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD4069C42BBB38930077E2E1 /* MapViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD4069CD2BBB55AA0077E2E1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		AD8E65152BB58264007B0E98 = {
@@ -118,6 +141,7 @@
 		AD8E65202BB58264007B0E98 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				AD4069CB2BBB55810077E2E1 /* Map */,
 				AD0F96BC2BB5F6DB0044B163 /* Weather */,
 				AD8E65442BB5852E007B0E98 /* Others */,
 				AD8E65452BB58537007B0E98 /* Managers */,
