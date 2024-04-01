@@ -1,13 +1,13 @@
 import Foundation
 import CoreLocation
+import Foundation
 
 struct WeatherForecast {
     let date: String
     let temperature: String
     let min, max: String
+    let iconCode: String?
 }
-
-import Foundation
 
 protocol WeatherViewModelDelegate: AnyObject {
     func didUpdateWeatherData()
@@ -18,6 +18,7 @@ class WeatherViewModel {
     weak var delegate: WeatherViewModelDelegate?
     
     var currentTemperature: String = ""
+    var currentIconCode: String = ""
     var sevenDayForecast: [WeatherForecast] = []
     
     func fetchWeatherData(for coordinate: CLLocationCoordinate2D) {
@@ -33,7 +34,10 @@ class WeatherViewModel {
     
     private func processWeatherData(_ weatherData: WeatherData) {
         // Process current weather data
-        currentTemperature = "\(Int(weatherData.current.temp ?? 0))°C"
+        currentTemperature = "\(Int(weatherData.current.temp))°C"
+        if let currentWeather = weatherData.current.weather.first{
+            currentIconCode = currentWeather.icon
+        }
         
         // Process daily weather forecast
         sevenDayForecast = weatherData.daily.map { dailyWeather in
@@ -43,9 +47,12 @@ class WeatherViewModel {
             let temperature = "\(Int(dailyWeather.temp.day))°C"
             let minTemp = "\(Int(dailyWeather.temp.min))°C"
             let maxTemp = "\(Int(dailyWeather.temp.max))°C"
-            return WeatherForecast(date: date, temperature: temperature, min: minTemp, max: maxTemp)
+            let iconCode = dailyWeather.weather.first?.icon
+            let iconURL = dailyWeather.iconCode
+            _ = "https://openweathermap.org/img/wn/\(iconCode ?? "").png"
+                
+            return WeatherForecast(date: date, temperature: temperature, min: minTemp, max: maxTemp, iconCode: dailyWeather.iconCode)
         }
-        
         delegate?.didUpdateWeatherData()
     }
 }

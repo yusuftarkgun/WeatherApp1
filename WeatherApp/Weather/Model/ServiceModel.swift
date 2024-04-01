@@ -34,8 +34,6 @@ struct WeatherData: Codable {
 struct CurrentWeather: Codable {
     let temp: Double
     let weather: [Weather]
-
-   // let icon: String
 }
 
 struct DailyWeather: Codable {
@@ -47,17 +45,9 @@ struct DailyWeather: Codable {
         return weather.first?.icon
     }
 }
-
-        
-  
-    //let summary: String
-    //let icon: String
-
-
 struct Temperature: Codable {
     let day: Double
 }
-
 
 enum NetworkError: Error {
     case invalidURL

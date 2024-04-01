@@ -21,22 +21,17 @@ class SevenDaysTableCell: UITableViewCell {
             maxTempLabel.text = weatherData?.max
             minTempLabel.text = weatherData?.min
             
-           // let url = URL(string: "https://openweathermap.org/img/wn/10d@2x.png")
-           // iconView.kf.setImage(with: url)
             if let iconCode = weatherData?.iconCode{
-                                let iconURLString = "https://openweathermap.org/img/wn/\(iconCode)@2x.png"
-                                if let iconURL = URL(string: iconURLString) {
-                                    iconView.kf.setImage(with: iconURL)
-                                }
-                            }
+                let iconURLString = "https://openweathermap.org/img/wn/\(iconCode)@2x.png"
+                    if let iconURL = URL(string: iconURLString) {
+                            iconView.kf.setImage(with: iconURL)
+                }
+            }
         }
     }
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor.clear
-        
-        
+        self.selectionStyle = .none
     }
 }
