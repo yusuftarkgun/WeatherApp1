@@ -33,10 +33,9 @@ class WeatherViewModel {
     }
     
     private func processWeatherData(_ weatherData: WeatherData) {
-        // Process current weather data
         currentTemperature = "\(Int(weatherData.current.temp))°C"
         if let currentWeather = weatherData.current.weather.first{
-            currentIconCode = currentWeather.icon
+            currentIconCode = currentWeather.icon ?? ""
         }
         
         // Process daily weather forecast

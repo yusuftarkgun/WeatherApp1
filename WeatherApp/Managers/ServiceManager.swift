@@ -18,7 +18,7 @@ class WeatherService {
                 completion(.failure(NetworkError.failedRequest))
                 return
             }
-            
+            print(data)
             do {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .secondsSince1970

@@ -8,12 +8,12 @@ class ViewController: UIViewController, WeatherViewModelDelegate{
     @IBOutlet weak var currentIcon: UIImageView!
     @IBOutlet weak var LaunchScreen: UIImageView!
     @IBOutlet weak var currentTemperatureLabel: UILabel!
-
+    
     let sevenDaysTableCell = UITableView()
     private let viewModel = WeatherViewModel()
     private let locationManager = LocationManager.shared
-     var latitude  = 0.0
-     var longitude  = 0.0
+    var latitude  = 0.0
+    var longitude  = 0.0
     
     // View Lifecycle
     override func viewDidLoad() {
@@ -73,9 +73,11 @@ class ViewController: UIViewController, WeatherViewModelDelegate{
     }
     
     func didFailWithError(_ error: Error) {
-        let alert = UIAlertController(title: "Ops!", message: "\(error.localizedDescription)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Ops!", message: "\(error.localizedDescription)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -91,3 +93,4 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
+

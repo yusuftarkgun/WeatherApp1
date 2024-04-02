@@ -1,29 +1,29 @@
+//
+//  ServiceModel.swift
+//  WeatherApp
+//
+//  Created by Yusuf Tarık Gün on 28.03.2024.
 import Foundation
 
-struct Weather: Codable {
-    let id: Int
-    let main: Main
-    let description: Description
-    let icon: String
-}
 
-enum Description: String, Codable {
-    case brokenClouds = "broken clouds"
-    case clearSky = "clear sky"
-    case fewClouds = "few clouds"
-    case lightRain = "light rain"
-    case overcastClouds = "overcast clouds"
-    case scatteredClouds = "scattered clouds"
-}
-
-enum Main: String, Codable {
-    case clear = "Clear"
-    case clouds = "Clouds"
-    case rain = "Rain"
-}
+// MARK: - Temp
 struct Temp: Codable {
     let day, min, max, night: Double
-    let eve, morn: Double
+}
+
+// MARK: - Weather
+struct Weather: Codable {
+    let id: Int?
+    let main: String?
+    let description: String?
+    let icon: String?
+    
+    enum CodingKeys: CodingKey {
+        case id
+        case main
+        case description
+        case icon
+    }
 }
 
 struct WeatherData: Codable {
@@ -34,6 +34,7 @@ struct WeatherData: Codable {
 struct CurrentWeather: Codable {
     let temp: Double
     let weather: [Weather]
+    
 }
 
 struct DailyWeather: Codable {
@@ -41,13 +42,14 @@ struct DailyWeather: Codable {
     let temp: Temp
     let weather: [Weather]
     var iconCode: String? {
-      
         return weather.first?.icon
     }
 }
+
 struct Temperature: Codable {
     let day: Double
 }
+
 
 enum NetworkError: Error {
     case invalidURL

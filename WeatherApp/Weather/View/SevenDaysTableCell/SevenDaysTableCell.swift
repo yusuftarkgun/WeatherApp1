@@ -33,5 +33,6 @@ class SevenDaysTableCell: UITableViewCell {
         super.awakeFromNib()
         self.backgroundColor = UIColor.clear
         self.selectionStyle = .none
+       
     }
 }
