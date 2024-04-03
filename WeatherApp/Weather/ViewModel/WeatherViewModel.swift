@@ -1,6 +1,5 @@
 import Foundation
 import CoreLocation
-import Foundation
 
 struct WeatherForecast {
     let date: String
@@ -33,12 +32,15 @@ class WeatherViewModel {
     }
     
     private func processWeatherData(_ weatherData: WeatherData) {
+        // Current temperature update
         currentTemperature = "\(Int(weatherData.current.temp))°C"
-        if let currentWeather = weatherData.current.weather.first{
-            currentIconCode = currentWeather.icon ?? ""
+        
+        // Current icon code update
+        if let currentWeather = weatherData.current.weather.first {
+            currentIconCode = currentWeather.icon ?? "DefaultIconCode"
         }
         
-        // Process daily weather forecast
+        // Daily weather forecast update
         sevenDayForecast = weatherData.daily.map { dailyWeather in
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "EEEE"
@@ -49,9 +51,10 @@ class WeatherViewModel {
             let iconCode = dailyWeather.weather.first?.icon
             let iconURL = dailyWeather.iconCode
             _ = "https://openweathermap.org/img/wn/\(iconCode ?? "").png"
-                
+            
             return WeatherForecast(date: date, temperature: temperature, min: minTemp, max: maxTemp, iconCode: dailyWeather.iconCode)
         }
+        
         delegate?.didUpdateWeatherData()
     }
 }

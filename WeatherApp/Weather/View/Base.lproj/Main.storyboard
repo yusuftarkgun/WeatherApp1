@@ -97,24 +97,42 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxr-Sj-74Q">
+                                <rect key="frame" x="236" y="726" width="150" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Update Location"/>
+                                <connections>
+                                    <action selector="updateWeatherButtonTapped:" destination="q7j-U7-R4l" eventType="touchUpInside" id="fpu-tp-36c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="loV-aO-HL6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Kxr-Sj-74Q" firstAttribute="leading" secondItem="loV-aO-HL6" secondAttribute="leading" constant="236" id="0ot-hX-qcv"/>
                             <constraint firstItem="OPc-9f-7Cq" firstAttribute="top" secondItem="loV-aO-HL6" secondAttribute="top" id="AAp-ZM-1Be"/>
+                            <constraint firstItem="OPc-9f-7Cq" firstAttribute="top" secondItem="vzN-IR-Bkt" secondAttribute="top" id="MLZ-Jt-kpg"/>
                             <constraint firstItem="OPc-9f-7Cq" firstAttribute="leading" secondItem="loV-aO-HL6" secondAttribute="leading" id="Y8K-vE-j2F"/>
+                            <constraint firstItem="loV-aO-HL6" firstAttribute="trailing" secondItem="Kxr-Sj-74Q" secondAttribute="trailing" constant="7" id="d51-wF-Rhe"/>
+                            <constraint firstItem="OPc-9f-7Cq" firstAttribute="leading" secondItem="loV-aO-HL6" secondAttribute="leading" id="dts-9p-WLN"/>
+                            <constraint firstItem="Kxr-Sj-74Q" firstAttribute="top" secondItem="loV-aO-HL6" secondAttribute="top" constant="667" id="iQn-nu-maU"/>
+                            <constraint firstItem="loV-aO-HL6" firstAttribute="bottom" secondItem="Kxr-Sj-74Q" secondAttribute="bottom" constant="8" id="qoA-Iw-Y49"/>
                             <constraint firstItem="loV-aO-HL6" firstAttribute="trailing" secondItem="OPc-9f-7Cq" secondAttribute="trailing" id="r8K-tz-zZU"/>
+                            <constraint firstItem="OPc-9f-7Cq" firstAttribute="trailing" secondItem="loV-aO-HL6" secondAttribute="trailing" id="sFB-IH-X3H"/>
+                            <constraint firstItem="OPc-9f-7Cq" firstAttribute="top" secondItem="loV-aO-HL6" secondAttribute="top" id="t7T-Xc-31R"/>
                             <constraint firstItem="loV-aO-HL6" firstAttribute="bottom" secondItem="OPc-9f-7Cq" secondAttribute="bottom" id="xlr-rd-WMW"/>
+                            <constraint firstItem="OPc-9f-7Cq" firstAttribute="bottom" secondItem="loV-aO-HL6" secondAttribute="bottom" id="yzp-yM-CNW"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" selectedImage="map" id="TVm-kq-5qZ" userLabel="Map"/>
                     <connections>
                         <outlet property="mapView" destination="OPc-9f-7Cq" id="Rcd-ix-NL3"/>
+                        <outlet property="updateWeatherButton" destination="Kxr-Sj-74Q" id="cNi-o4-yRn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RiG-fk-HvW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-147" y="622"/>
+            <point key="canvasLocation" x="-147.32824427480915" y="621.83098591549299"/>
         </scene>
     </scenes>
     <resources>
