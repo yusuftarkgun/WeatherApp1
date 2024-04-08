@@ -1,74 +1,64 @@
+
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
-    var selectedCoordinate: CLLocationCoordinate2D?
-    let weatherService = WeatherService()
-    var annotations: [MKAnnotation] = []
+final class MapViewController: UIViewController {
 
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var updateWeatherButton: UIButton!
+    @IBOutlet private weak var mapView: MKMapView!
+    private var selectedLocation: CLLocationCoordinate2D?
+    @IBOutlet private weak var updateButton: UIButton!
+    var viewModel: MapViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addPin(_:)))
         mapView.addGestureRecognizer(longPressGesture)
+        
+        viewModel = MapViewModel(weatherService: WeatherService(), mapView: mapView)
+        viewModel.delegate = self
     }
-
-    func setupUI() {
-        mapView.delegate = self
-    }
-
-    @objc func handleLongPress(_ gestureRecognizer: UILongPressGestureRecognizer) {
+    
+    @objc
+    func addPin(_ gestureRecognizer: UILongPressGestureRecognizer) {
         if gestureRecognizer.state == .ended {
             let locationInView = gestureRecognizer.location(in: mapView)
             let locationOnMap = mapView.convert(locationInView, toCoordinateFrom: mapView)
-            
-            // Mevcut pinleri sil
-            mapView.removeAnnotations(annotations)
-            annotations.removeAll()
-            addAnnotation(at: locationOnMap)
-            selectedCoordinate = locationOnMap
+            selectedLocation = locationOnMap
+            viewModel.addAnnotation(at: locationOnMap)
         }
     }
-
-    func addAnnotation(at coordinate: CLLocationCoordinate2D) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        mapView.addAnnotation(annotation)
-        annotations.append(annotation)
+    
+    func setupUI() {
+        mapView.delegate = self
     }
-
-    @IBAction func updateWeatherButtonTapped(_ sender: UIButton) {
-        guard let coordinate = selectedCoordinate else {
-            // Eğer bir koordinat seçilmemişse işlemi sonlandır
-            return
-        }
-        
-        // Hava durumu verilerini güncellemek için servise koordinatı gönder
-        weatherService.fetchWeatherData(for: coordinate) { result in
-            switch result {
-            case .success(let weatherData):
-                DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: Notification.Name("DidSelectMapLocation"), object: nil, userInfo: ["weatherData": weatherData])
-                    NotificationCenter.default.post(name: Notification.Name("DidSelectMapLocation"), object: nil, userInfo: ["coordinate": coordinate])
-
-                }
-            case .failure(let error):
-                print("Hava durumu güncellenirken hata oluştu: \(error)")
+    
+    @IBAction func didTapUpdateButton(_ sender: Any) {
+        if let selectedLocation {
+            NotificationCenter.default.post(name: NSNotification.Name.init("UpdateLocation"), object: selectedLocation)
+        } else {
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Ops!", message: "Something went wrong.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }
+        
     }
 }
 
 extension MapViewController: MKMapViewDelegate {
-    // Harita üzerinde bir pin seçildiğinde, seçilen koordinatı sakla
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let annotation = view.annotation {
-            selectedCoordinate = annotation.coordinate
+        if let annotation = view.annotation as? MKPointAnnotation {
+            viewModel.fetchWeatherData(for: annotation.coordinate)
         }
     }
 }
 
-
+extension MapViewController: MapViewModelDelegate {
+    func displayWeatherData(_ weatherData: WeatherData, at coordinate: CLLocationCoordinate2D) {
+        let subtitle = "Sıcaklık: \(weatherData.current?.temp ?? 0)°C"
+        viewModel.updateAnnotationSubtitle(subtitle)
+    }
+}

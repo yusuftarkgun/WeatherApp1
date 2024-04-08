@@ -14,7 +14,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     private let locationManager = CLLocationManager()
     
-    var currentLocation: CLLocation? 
+    var currentLocation: CLLocation?
     
     private override init() {
         super.init()

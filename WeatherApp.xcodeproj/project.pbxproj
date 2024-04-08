@@ -21,6 +21,7 @@
 		AD8E654B2BB585C8007B0E98 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E654A2BB585C8007B0E98 /* WeatherViewModel.swift */; };
 		AD8E654F2BB58658007B0E98 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E654E2BB58658007B0E98 /* ServiceModel.swift */; };
 		AD8E65512BB589A9007B0E98 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E65502BB589A9007B0E98 /* LocationManager.swift */; };
+		ADF09C6E2BC40C3E008EF54F /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF09C6D2BC40C3E008EF54F /* MapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		AD8E654A2BB585C8007B0E98 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		AD8E654E2BB58658007B0E98 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		AD8E65502BB589A9007B0E98 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		ADF09C6D2BC40C3E008EF54F /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		AD4069CD2BBB55AA0077E2E1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				ADF09C6D2BC40C3E008EF54F /* MapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD8E654B2BB585C8007B0E98 /* WeatherViewModel.swift in Sources */,
+				ADF09C6E2BC40C3E008EF54F /* MapViewModel.swift in Sources */,
 				AD8E65262BB58264007B0E98 /* ViewController.swift in Sources */,
 				AD8E65222BB58264007B0E98 /* AppDelegate.swift in Sources */,
 				AD8E65512BB589A9007B0E98 /* LocationManager.swift in Sources */,

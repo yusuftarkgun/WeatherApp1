@@ -1,24 +1,18 @@
 import Foundation
 import CoreLocation
-
-struct WeatherForecast {
-    let date: String
-    let temperature: String
-    let min, max: String
-    let iconCode: String?
-}
+import Foundation
 
 protocol WeatherViewModelDelegate: AnyObject {
     func didUpdateWeatherData()
     func didFailWithError(_ error: Error)
 }
 
-class WeatherViewModel {
+final class WeatherViewModel {
     weak var delegate: WeatherViewModelDelegate?
     
     var currentTemperature: String = ""
     var currentIconCode: String = ""
-    var sevenDayForecast: [WeatherForecast] = []
+    var sevenDayForecast: [WeatherForecast]?
     
     func fetchWeatherData(for coordinate: CLLocationCoordinate2D) {
         WeatherService.shared.fetchWeatherData(for: coordinate) { [weak self] result in
@@ -31,30 +25,23 @@ class WeatherViewModel {
         }
     }
     
-    private func processWeatherData(_ weatherData: WeatherData) {
-        // Current temperature update
-        currentTemperature = "\(Int(weatherData.current.temp))°C"
-        
-        // Current icon code update
-        if let currentWeather = weatherData.current.weather.first {
-            currentIconCode = currentWeather.icon ?? "DefaultIconCode"
+    private func processWeatherData(_ weatherData: WeatherData?) {
+        guard let weatherData else { return }
+        currentTemperature = "\(Int(weatherData.current?.temp ?? 0))°C"
+        if let currentWeather = weatherData.current?.weather?.first {
+            currentIconCode = currentWeather.icon ?? ""
         }
-        
-        // Daily weather forecast update
         sevenDayForecast = weatherData.daily.map { dailyWeather in
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "EEEE"
-            let date = dateFormatter.string(from: dailyWeather.dt)
-            let temperature = "\(Int(dailyWeather.temp.day))°C"
-            let minTemp = "\(Int(dailyWeather.temp.min))°C"
-            let maxTemp = "\(Int(dailyWeather.temp.max))°C"
-            let iconCode = dailyWeather.weather.first?.icon
-            let iconURL = dailyWeather.iconCode
-            _ = "https://openweathermap.org/img/wn/\(iconCode ?? "").png"
-            
-            return WeatherForecast(date: date, temperature: temperature, min: minTemp, max: maxTemp, iconCode: dailyWeather.iconCode)
+            let date = dateFormatter.string(from: dailyWeather.dt ?? Date())
+            let temperature = "\(Int(dailyWeather.temp?.day ?? 0))°C"
+            let minTemp = "\(Int(dailyWeather.temp?.min ?? 0))°C"
+            let maxTemp = "\(Int(dailyWeather.temp?.max ?? 0))°C"
+            let iconCode = dailyWeather.iconCode
+                
+            return WeatherForecast(date: date, temperature: temperature, min: minTemp, max: maxTemp, iconCode: iconCode)
         }
-        
         delegate?.didUpdateWeatherData()
     }
 }
