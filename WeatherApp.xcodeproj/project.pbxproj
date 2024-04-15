@@ -7,15 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD4069B12BB9F97D0077E2E1 /* SevenDaysTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4069AF2BB9F97D0077E2E1 /* SevenDaysTableCell.swift */; };
+		AD4069B22BB9F97D0077E2E1 /* SevenDaysTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4069B02BB9F97D0077E2E1 /* SevenDaysTableCell.xib */; };
+		AD4069B52BBA04F40077E2E1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AD4069B42BBA04F40077E2E1 /* Kingfisher */; };
+		AD4069C52BBB38930077E2E1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4069C42BBB38930077E2E1 /* MapViewController.swift */; };
 		AD8E65222BB58264007B0E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E65212BB58264007B0E98 /* AppDelegate.swift */; };
 		AD8E65242BB58264007B0E98 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E65232BB58264007B0E98 /* SceneDelegate.swift */; };
 		AD8E65262BB58264007B0E98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E65252BB58264007B0E98 /* ViewController.swift */; };
 		AD8E65292BB58264007B0E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD8E65272BB58264007B0E98 /* Main.storyboard */; };
 		AD8E652B2BB58266007B0E98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD8E652A2BB58266007B0E98 /* Assets.xcassets */; };
 		AD8E652E2BB58266007B0E98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD8E652C2BB58266007B0E98 /* LaunchScreen.storyboard */; };
+		AD8E65492BB58581007B0E98 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E65482BB58581007B0E98 /* ServiceManager.swift */; };
+		AD8E654B2BB585C8007B0E98 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E654A2BB585C8007B0E98 /* WeatherViewModel.swift */; };
+		AD8E654F2BB58658007B0E98 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E654E2BB58658007B0E98 /* ServiceModel.swift */; };
+		AD8E65512BB589A9007B0E98 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E65502BB589A9007B0E98 /* LocationManager.swift */; };
+		ADF09C6E2BC40C3E008EF54F /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF09C6D2BC40C3E008EF54F /* MapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD4069AF2BB9F97D0077E2E1 /* SevenDaysTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenDaysTableCell.swift; sourceTree = "<group>"; };
+		AD4069B02BB9F97D0077E2E1 /* SevenDaysTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SevenDaysTableCell.xib; sourceTree = "<group>"; };
+		AD4069C42BBB38930077E2E1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AD8E651E2BB58264007B0E98 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD8E65212BB58264007B0E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD8E65232BB58264007B0E98 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +36,11 @@
 		AD8E652A2BB58266007B0E98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD8E652D2BB58266007B0E98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD8E652F2BB58266007B0E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD8E65482BB58581007B0E98 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		AD8E654A2BB585C8007B0E98 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		AD8E654E2BB58658007B0E98 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
+		AD8E65502BB589A9007B0E98 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		ADF09C6D2BC40C3E008EF54F /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +48,83 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD4069B52BBA04F40077E2E1 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD0F96BC2BB5F6DB0044B163 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				AD0F96BF2BB5F7310044B163 /* View */,
+				AD0F96BE2BB5F7240044B163 /* ViewModel */,
+				AD0F96BD2BB5F7190044B163 /* Model */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		AD0F96BD2BB5F7190044B163 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AD8E654E2BB58658007B0E98 /* ServiceModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AD0F96BE2BB5F7240044B163 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AD8E654A2BB585C8007B0E98 /* WeatherViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AD0F96BF2BB5F7310044B163 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD4069AE2BB9F9490077E2E1 /* SevenDaysTableCell */,
+				AD8E65272BB58264007B0E98 /* Main.storyboard */,
+				AD8E65252BB58264007B0E98 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD4069AE2BB9F9490077E2E1 /* SevenDaysTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				AD4069AF2BB9F97D0077E2E1 /* SevenDaysTableCell.swift */,
+				AD4069B02BB9F97D0077E2E1 /* SevenDaysTableCell.xib */,
+			);
+			path = SevenDaysTableCell;
+			sourceTree = "<group>";
+		};
+		AD4069CB2BBB55810077E2E1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				AD4069CD2BBB55AA0077E2E1 /* ViewModel */,
+				AD4069CC2BBB558E0077E2E1 /* View */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		AD4069CC2BBB558E0077E2E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD4069C42BBB38930077E2E1 /* MapViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD4069CD2BBB55AA0077E2E1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ADF09C6D2BC40C3E008EF54F /* MapViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		AD8E65152BB58264007B0E98 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +144,33 @@
 		AD8E65202BB58264007B0E98 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				AD8E65212BB58264007B0E98 /* AppDelegate.swift */,
-				AD8E65232BB58264007B0E98 /* SceneDelegate.swift */,
-				AD8E65252BB58264007B0E98 /* ViewController.swift */,
-				AD8E65272BB58264007B0E98 /* Main.storyboard */,
+				AD4069CB2BBB55810077E2E1 /* Map */,
+				AD0F96BC2BB5F6DB0044B163 /* Weather */,
+				AD8E65442BB5852E007B0E98 /* Others */,
+				AD8E65452BB58537007B0E98 /* Managers */,
 				AD8E652A2BB58266007B0E98 /* Assets.xcassets */,
-				AD8E652C2BB58266007B0E98 /* LaunchScreen.storyboard */,
 				AD8E652F2BB58266007B0E98 /* Info.plist */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		AD8E65442BB5852E007B0E98 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				AD8E65232BB58264007B0E98 /* SceneDelegate.swift */,
+				AD8E652C2BB58266007B0E98 /* LaunchScreen.storyboard */,
+				AD8E65212BB58264007B0E98 /* AppDelegate.swift */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		AD8E65452BB58537007B0E98 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AD8E65482BB58581007B0E98 /* ServiceManager.swift */,
+				AD8E65502BB589A9007B0E98 /* LocationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +189,9 @@
 			dependencies = (
 			);
 			name = WeatherApp;
+			packageProductDependencies = (
+				AD4069B42BBA04F40077E2E1 /* Kingfisher */,
+			);
 			productName = WeatherApp;
 			productReference = AD8E651E2BB58264007B0E98 /* WeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +220,9 @@
 				Base,
 			);
 			mainGroup = AD8E65152BB58264007B0E98;
+			packageReferences = (
+				AD4069B32BBA04F40077E2E1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = AD8E651F2BB58264007B0E98 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD8E652E2BB58266007B0E98 /* LaunchScreen.storyboard in Resources */,
+				AD4069B22BB9F97D0077E2E1 /* SevenDaysTableCell.xib in Resources */,
 				AD8E652B2BB58266007B0E98 /* Assets.xcassets in Resources */,
 				AD8E65292BB58264007B0E98 /* Main.storyboard in Resources */,
 			);
@@ -138,9 +251,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD8E654B2BB585C8007B0E98 /* WeatherViewModel.swift in Sources */,
+				ADF09C6E2BC40C3E008EF54F /* MapViewModel.swift in Sources */,
 				AD8E65262BB58264007B0E98 /* ViewController.swift in Sources */,
 				AD8E65222BB58264007B0E98 /* AppDelegate.swift in Sources */,
+				AD8E65512BB589A9007B0E98 /* LocationManager.swift in Sources */,
+				AD4069C52BBB38930077E2E1 /* MapViewController.swift in Sources */,
+				AD8E654F2BB58658007B0E98 /* ServiceModel.swift in Sources */,
+				AD4069B12BB9F97D0077E2E1 /* SevenDaysTableCell.swift in Sources */,
 				AD8E65242BB58264007B0E98 /* SceneDelegate.swift in Sources */,
+				AD8E65492BB58581007B0E98 /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +407,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6GZ25Y7B24;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -314,6 +435,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6GZ25Y7B24;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -356,6 +478,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AD4069B32BBA04F40077E2E1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AD4069B42BBA04F40077E2E1 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AD4069B32BBA04F40077E2E1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AD8E65162BB58264007B0E98 /* Project object */;
 }

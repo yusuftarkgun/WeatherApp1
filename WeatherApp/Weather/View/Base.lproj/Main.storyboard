@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kyr-ZA-LTX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Current-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Vv4-H3-OAM">
+                                <rect key="frame" x="0.0" y="369" width="393" height="400"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="cyn-02-BmV"/>
+                                </constraints>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnl-1I-oIT">
+                                <rect key="frame" x="73" y="73" width="245" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Current" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLX-hR-INH">
+                                <rect key="frame" x="35" y="287" width="323" height="38"/>
+                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tLa-Yj-2ep">
+                                <rect key="frame" x="113" y="119" width="165" height="158"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vv4-H3-OAM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4jz-K0-6c2"/>
+                            <constraint firstItem="Vv4-H3-OAM" firstAttribute="centerX" secondItem="VLX-hR-INH" secondAttribute="centerX" id="QDM-nK-UNS"/>
+                            <constraint firstAttribute="trailing" secondItem="Vv4-H3-OAM" secondAttribute="trailing" id="Shj-Iz-fF3"/>
+                            <constraint firstItem="Vv4-H3-OAM" firstAttribute="top" secondItem="VLX-hR-INH" secondAttribute="bottom" constant="44" id="ow8-kB-hEM"/>
+                            <constraint firstItem="Vv4-H3-OAM" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xl7-A6-O2f"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Current" image="cloud.sun.fill" catalog="system" selectedImage="cloud.sun.fill" id="xf4-hY-d2n"/>
+                    <connections>
+                        <outlet property="currentIcon" destination="tLa-Yj-2ep" id="b18-ct-llS"/>
+                        <outlet property="currentLocationView" destination="Gnl-1I-oIT" id="fMs-00-PSQ"/>
+                        <outlet property="currentTemperatureLabel" destination="VLX-hR-INH" id="za1-wv-Ztx"/>
+                        <outlet property="sevenDayTableView" destination="Vv4-H3-OAM" id="K2j-gr-u1E"/>
+                        <outlet property="view" destination="VLX-hR-INH" id="39n-sy-WBc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="917" y="622"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Rnw-us-DIo">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Kyr-ZA-LTX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="khL-tE-Ke4">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="efV-Si-UIk"/>
+                        <segue destination="q7j-U7-R4l" kind="relationship" relationship="viewControllers" id="Lhp-FK-egd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vs6-Zl-dgm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="344" y="-255"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="jHe-Je-5WP">
+            <objects>
+                <viewController id="q7j-U7-R4l" customClass="MapViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vzN-IR-Bkt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPc-9f-7Cq">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxr-Sj-74Q">
+                                <rect key="frame" x="236" y="726" width="150" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Update Location"/>
+                                <connections>
+                                    <action selector="didTapUpdateButton:" destination="q7j-U7-R4l" eventType="touchUpInside" id="6mQ-47-unj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="loV-aO-HL6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Kxr-Sj-74Q" firstAttribute="leading" secondItem="loV-aO-HL6" secondAttribute="leading" constant="236" id="0ot-hX-qcv"/>
+                            <constraint firstItem="OPc-9f-7Cq" firstAttribute="top" secondItem="loV-aO-HL6" secondAttribute="top" id="AAp-ZM-1Be"/>
+                            <constraint firstItem="OPc-9f-7Cq" firstAttribute="top" secondItem="vzN-IR-Bkt" secondAttribute="top" id="MLZ-Jt-kpg"/>
+                            <constraint firstItem="OPc-9f-7Cq" firstAttribute="leading" secondItem="loV-aO-HL6" secondAttribute="leading" id="Y8K-vE-j2F"/>
+                            <constraint firstItem="loV-aO-HL6" firstAttribute="trailing" secondItem="Kxr-Sj-74Q" secondAttribute="trailing" constant="7" id="d51-wF-Rhe"/>
+                            <constraint firstItem="OPc-9f-7Cq" firstAttribute="leading" secondItem="loV-aO-HL6" secondAttribute="leading" id="dts-9p-WLN"/>
+                            <constraint firstItem="Kxr-Sj-74Q" firstAttribute="top" secondItem="loV-aO-HL6" secondAttribute="top" constant="667" id="iQn-nu-maU"/>
+                            <constraint firstItem="loV-aO-HL6" firstAttribute="bottom" secondItem="Kxr-Sj-74Q" secondAttribute="bottom" constant="8" id="qoA-Iw-Y49"/>
+                            <constraint firstItem="loV-aO-HL6" firstAttribute="trailing" secondItem="OPc-9f-7Cq" secondAttribute="trailing" id="r8K-tz-zZU"/>
+                            <constraint firstItem="OPc-9f-7Cq" firstAttribute="trailing" secondItem="loV-aO-HL6" secondAttribute="trailing" id="sFB-IH-X3H"/>
+                            <constraint firstItem="OPc-9f-7Cq" firstAttribute="top" secondItem="loV-aO-HL6" secondAttribute="top" id="t7T-Xc-31R"/>
+                            <constraint firstItem="loV-aO-HL6" firstAttribute="bottom" secondItem="OPc-9f-7Cq" secondAttribute="bottom" id="xlr-rd-WMW"/>
+                            <constraint firstItem="OPc-9f-7Cq" firstAttribute="bottom" secondItem="loV-aO-HL6" secondAttribute="bottom" id="yzp-yM-CNW"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" selectedImage="map" id="TVm-kq-5qZ" userLabel="Map"/>
+                    <connections>
+                        <outlet property="mapView" destination="OPc-9f-7Cq" id="Rcd-ix-NL3"/>
+                        <outlet property="updateButton" destination="Kxr-Sj-74Q" id="PRv-fw-Emo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RiG-fk-HvW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-147.32824427480915" y="621.83098591549299"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cloud.sun.fill" catalog="system" width="128" height="96"/>
+        <image name="map" catalog="system" width="128" height="112"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
