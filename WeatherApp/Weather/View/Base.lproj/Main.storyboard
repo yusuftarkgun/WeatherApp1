@@ -102,7 +102,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Update Location"/>
                                 <connections>
-                                    <action selector="updateWeatherButtonTapped:" destination="q7j-U7-R4l" eventType="touchUpInside" id="fpu-tp-36c"/>
+                                    <action selector="didTapUpdateButton:" destination="q7j-U7-R4l" eventType="touchUpInside" id="6mQ-47-unj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -127,7 +127,7 @@
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" selectedImage="map" id="TVm-kq-5qZ" userLabel="Map"/>
                     <connections>
                         <outlet property="mapView" destination="OPc-9f-7Cq" id="Rcd-ix-NL3"/>
-                        <outlet property="updateWeatherButton" destination="Kxr-Sj-74Q" id="cNi-o4-yRn"/>
+                        <outlet property="updateButton" destination="Kxr-Sj-74Q" id="PRv-fw-Emo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RiG-fk-HvW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
